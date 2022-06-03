@@ -1,1 +1,36 @@
-<mxfile host="app.diagrams.net" modified="2022-06-03T20:19:42.002Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36" version="19.0.0" etag="Wqo0WRI_aea4qBD6FA_F" type="github"><diagram id="qExO7Sm5IGA0CLSvlaW0">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-06-03T20:57:56.546Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36" etag="L8OHqXpfjJMFHx1YMatT" version="19.0.0" type="github" pages="2">
+  <diagram id="qExO7Sm5IGA0CLSvlaW0" name="Page-1">
+    <mxGraphModel dx="1426" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4T5vtjolVSge13BqGDCj-2" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;bottom=0;right=0;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="260" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4T5vtjolVSge13BqGDCj-3" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=0;left=0;fillColor=none;labelBorderColor=default;" vertex="1" parent="1">
+          <mxGeometry x="450" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4T5vtjolVSge13BqGDCj-4" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border: none; padding: 0px; font-size: 31px;&quot;&gt;WeGame&lt;br style=&quot;font-size: 31px;&quot;&gt;&lt;/blockquote&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=31;" vertex="1" parent="1">
+          <mxGeometry x="305" y="140" width="190" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4T5vtjolVSge13BqGDCj-6" value="sign in" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontColor=#3333FF;fontStyle=4" vertex="1" parent="1">
+          <mxGeometry x="390" y="455" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4T5vtjolVSge13BqGDCj-13" value="create and account" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;fontColor=#3333FF;fontStyle=4" vertex="1" parent="1">
+          <mxGeometry x="340" y="520" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IVOdQWzFlGcJLiiHvxxe-3" value="Explore and contribute to game library" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;fontSize=19;fontStyle=6;labelBackgroundColor=none;labelBorderColor=none;spacingTop=2;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="255" y="250" width="340" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Us1Kchi85BRrsASOsCzj" name="Page-2">
+    <mxGraphModel dx="1426" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
