@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Game</title>
+</head>
+<body>
+    <a href="/games">HOME</a><br></br>
+
+    <form action="/games/<%= game.id %>?_method=PUT" method="POST">
+        <img src="<%= game.img %> " alt="image">
+        <ul style="list-style-type: none;">
+            <li>
+                <label for="name">Name: </label>
+                <input type="text" name="name" value="<%= game.name %> ">
+            </li><br>
+            <li>
+                <label for="description">Description: </label>
+                <input type="text" name="description" value="<%= game.description %> " >
+            </li><br>
+            <li>
+                <label for="age">Age: </label>
+                <input type="text" name="age" value="<%= game.age %> ">
+            </li><br>
+            <li>
+                <label for="players">Players: </label>
+                <input type="text" name="players" value="<%= game.players %>">
+            </li><br>
+        </ul>
+        <button type="submit">SAVE</button>
+    </form> 
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= game.name %> </title>
+</head>
+<body>
+    <ul style="list-style-type: none;">
+        <li><h2><%= game.name %> </a></h2></li>
+        <li><img src="<%= game.img %>" alt="image"></li> <br>
+        <li><b>Description: </b><%= game.description %></li><br>
+        <li><b>Age: </b> <%= game.age %> </li><br>
+        <li><b>Number of players: </b><%= game.players %> </li><br>
+        </ul><br>
+
+        <h3>Reviews</h3>
+        <form action="/games/<%= game.id %>/reviews" method="POST">
+            <textarea name="content" placeholder="Did you like this game? Do you have any suggestions on improving it? Share your exprerience." 
+            style="width: 20rem; height: 5rem;"></textarea><br>
+        <label for="rating">Rating:</label>
+        <select name="rating">
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+            <option value="4" >4</option>
+            <option value="5" >5</option>
+        </select>
+        <button type="submit">SUBMIT</button>
+        </form>
+        <br>
+
+        <% if (game.reviews.length) { %>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Review</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% game.reviews.forEach((rw) => { %>
+                  <tr>
+                    <td style="width: 5rem;">
+                      <%= rw.createdAt.toLocaleDateString() %>
+                    </td>
+                    <td style="width: 10rem; text-align: center;">
+                      <%= rw.content %>
+                    </td>
+                    <td style="width: 5rem; text-align: center;">
+                      <%= rw.rating %>
+                    </td>
+                  </tr>
+                  <% }); %>
+              </tbody>
+            </table>
+            <% } else { %>
+                <h5>No Reviews Yet</h5>
+                <% } %>
+</body>
+</html>

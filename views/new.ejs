@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>New Game</h1>
+    <form action="/games/" method="POST">
+        <ul style="list-style-type: none;">
+            <li>
+                <label for="name">Name: </label>
+                <input type="text" name="name">
+            </li><br>
+            <li>
+                <label for="img">Image: </label>
+                <input type="text" name="img">
+                <!-- https://i.imgur.com/hJ1kHNl.jpg -->
+            </li><br>
+            <li>
+                <label for="description">Description: </label>
+                <input type="text" name="description">
+            </li><br>
+            <li>
+                <label for="age"> Age: </label>
+                <input type="text" name="age">
+            </li><br>
+            <li>
+                <label for="players">Number of players: </label>
+                <input type="text" name="players">
+            </li><br>
+        </ul>
+        <button type="submit">SUBMIT</button>
+    </form>
+</body>
+</html>
