@@ -38,26 +38,34 @@
                   <th>Date</th>
                   <th>Review</th>
                   <th>Rating</th>
+                  <th>Delete</th>
                 </tr>
-              </thead>
+              </thead> 
               <tbody>
                 <% game.reviews.forEach((rw) => { %>
                   <tr>
                     <td style="width: 5rem;">
-                      <%= rw.createdAt.toLocaleDateString() %>
+                      <%= rw.createdAt.toLocaleDateString() %> 
                     </td>
                     <td style="width: 10rem; text-align: center;">
-                      <%= rw.content %>
+                      <%= rw.content %> 
                     </td>
                     <td style="width: 5rem; text-align: center;">
                       <%= rw.rating %>
                     </td>
+                    <td style="width: 5rem; text-align: center;">
+                       <form action="/games/<%= game.id %>/reviews/<%= rw.id %>?_method=DELETE" method="POST">
+                    <button type="submit">DELETE</button>
+                    </form>
+                      </td>
                   </tr>
                   <% }); %>
               </tbody>
-            </table>
+            </table> 
             <% } else { %>
                 <h5>No Reviews Yet</h5>
                 <% } %>
+<br>
+                <a href="/games">HOME</a>
 </body>
 </html>

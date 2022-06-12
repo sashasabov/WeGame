@@ -1,4 +1,4 @@
-const { rawListeners, findByIdAndDelete } = require('../models/games');
+
 const Game = require('../models/games')
 
 let index = (req, res) =>{

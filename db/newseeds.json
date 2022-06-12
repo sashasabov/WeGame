@@ -9,7 +9,7 @@
     },
 
     {
-        "name": "Mafia",
+        "name": "Mafiaaaa",
         "img": "https://i.imgur.com/wPeiWKd.jpg",
         "description": "The objective of the game is for the mafia to “kill off” civilians until they are the majority, or for the civilians to kill off the entire mafia. When one of those two things happens, the game is over.",
         "age": "12-99",
@@ -24,5 +24,14 @@
         "age": "12-99",
         "players":"2-8", 
         "type": ["indoor", "adults"]
+    },
+
+    {
+        "name": "Musical Chair",
+        "img": "https://i.imgur.com/hJ1kHNl.jpg",
+        "description": "Play the music and have the players walk around the perimeter of the chair circle. When the music stops, everyone must immediately sit in a chair. The one person left standing it out. Remove another chair and continue until only one person is left.",
+        "age": "5-99",
+        "players":"no limit", 
+        "type": ["indoor", "adults", "kids"]
     }
 ]

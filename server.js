@@ -1,25 +1,55 @@
 const express = require('express');
-const app = express();
-const PORT = 3000;
+const PORT = normalizePort(process.env.PORT || '3000');
 const path = require('path');
+const loginRoutes = require('./routes/loginRoutes')
 const gamesRoutes = require('./routes/gamesRoutes');
 const reviewsRoutes = require('./routes/reviewsRoutes')
 const methodOverride = require('method-override');
-require('./db/connection');
+const logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
 
-app.get('/', (req, res) => {
-    res.render('login')
-})
+require('dotenv').config();
+// require('dotenv').config({ path: path.resolve(__dirname, './.env') });
+
+const app = express();
+
+require('./db/connection');
+require('./db/passport')
 
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
+app.use(logger('dev'))
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser());
+app.use(session({
+  secret: 'SEIRocks!',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
+//middleware to make your req.user available in all of your ejs files
+// app.use(function (req, res, next) {
+//     res.locals.user = req.user;
+//     next();
+//   });
+
+app.use('/',loginRoutes)
 app.use('/',reviewsRoutes)
 app.use('/games', gamesRoutes);
+
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+    if (isNaN(port)) {return val;}
+    if (port >= 0) {return port;}
+    return false;
+  }
 
 app.listen(PORT, () =>{
     console.log(`✅ PORT: ${PORT} 🌟`)
