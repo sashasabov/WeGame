@@ -5,7 +5,7 @@ const loginRoutes = require('./routes/loginRoutes')
 const gamesRoutes = require('./routes/gamesRoutes');
 const reviewsRoutes = require('./routes/reviewsRoutes')
 const methodOverride = require('method-override');
-const logger = require('morgan');
+// const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
@@ -22,7 +22,7 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
-app.use(logger('dev'))
+// app.use(logger('dev'))
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
@@ -41,8 +41,9 @@ app.use(passport.session());
 //   });
 
 app.use('/',loginRoutes)
-app.use('/',reviewsRoutes)
 app.use('/games', gamesRoutes);
+app.use('/',reviewsRoutes)
+
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
