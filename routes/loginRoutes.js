@@ -30,6 +30,29 @@ router.post('/signup', async (req, res) => {
         });    
 
 
+<<<<<<< HEAD
+=======
+// router.post('/', 
+//  passport.authenticate('local', {failureRedirect: '/', failureMessage: true}),
+//     (req, res) => {
+//         res.redirect('/games')
+
+     
+        // User.findOne({email: req.body.email}, (err,user)=>{
+        //         if (err){
+        //             res.status(400).json(err)
+        //             return
+        //         } 
+        //         if(user === null){
+        //             console.log('there is no such user')
+        //         return res.redirect('/')
+        //     }
+        //        if(bcrypt.compare(req.body.password, user.password)){
+        //             console.log(user)
+        //          return res.redirect('/games')} 
+        //     })  
+    // })
+>>>>>>> 38f8a73 (login set up)
 
     router.post('/', passport.authenticate('local', {
         successRedirect:'/games',
@@ -38,7 +61,7 @@ router.post('/signup', async (req, res) => {
       }));
 
 
-router.get('/auth/google',  passport.authenticate(
+router.get('/auth/google', passport.authenticate(
     'google',
     {scope: ['profile', 'email']}
 ));

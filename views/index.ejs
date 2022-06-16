@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Games</title>
+</head>
+<body>
+    <a href="/games/new">Add new game</a>
+    <h1>Welcome </h1>
+     <h1>List of Games</h1>
+   
+     <% game.forEach((el)=>{%>
+    <ul style="list-style-type: none;">
+        <li><h2><a href="/games/<%= el.id %>"><%= el.title %> </a></h2></li>
+        <li><img src="<%= el.img %>" alt="image"></li> <br>
+        <li><b>Description: </b><%= el.description %></li><br>
+        <li><b>Age: </b> <%= el.age %> </li><br>
+        <li><b>Number of players: </b><%= el.players %> </li><br>
+        
+    
+        <form action="/games/<%= el.id %>/edit">
+            <button type="submit">EDIT</button>
+        </form> <br>
 
 
 <main class="form-signin w-100 m-auto">
