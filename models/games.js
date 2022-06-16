@@ -19,7 +19,7 @@ const reviewSchema = new mongoose.Schema({
 const gameSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        // required: true
     },
     img: String,
     description: String,
@@ -27,7 +27,7 @@ const gameSchema = new mongoose.Schema({
     players: String,
     category: Array,
     reviews: [reviewSchema],
-    googleId: String
+    // googleId: String
 })
 
 const Game = mongoose.model("Game", gameSchema);

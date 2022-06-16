@@ -1,5 +1,6 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/users')
 
 passport.use(new GoogleStrategy({
@@ -26,6 +27,35 @@ function(accessToken, refreshToken, profile, cb){
     });
 }));
 
+// passport.use(new LocalStrategy(
+//     function(email, password, done) {
+//         console.log('random')
+//       User.findOne({ email: email}, function (err, user) {
+//           console.log(user)
+//         if (err) { return done(err); }
+//         if (!user) { return done(null, false); }
+//         if (!user.verifyPassword(password)) { return done(null, false); }
+//         return done(null, user);
+//       });
+//     }
+//   ));
+
+passport.use(new LocalStrategy(function verify(email, password, cb) {
+    User.findOne({ email: email}, function (err, row) {
+      if (err) { return cb(err); }
+      if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
+      
+      crypto.pbkdf2(password, row.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
+        if (err) { return cb(err); }
+        if (!crypto.timingSafeEqual(row.hashed_password, hashedPassword)) {
+          return cb(null, false, { message: 'Incorrect username or password.' });
+        }
+        return cb(null, row);
+      });
+    });
+  }));
+
+  
 passport.serializeUser(function(user, done){
     done(null, user.id);
 });
@@ -35,3 +65,5 @@ passport.deserializeUser(function(id, done){
         done(err, user);
     });
 });
+
+

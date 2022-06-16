@@ -3,14 +3,62 @@ const router = require('express').Router();
 // const req = require('express/lib/request');
 // const res = require('express/lib/response');
 const passport = require('passport')
+const bcrypt = require('bcrypt')
+const User = require('../models/users')
 
 router.get('/', (req, res) => {
     res.render('login')
 })
 
+
+router.post('/signup', async (req, res) => {       
+    req.body.password = await bcrypt.hash(req.body.password,10)
+           let user = new User(req.body)
+           res.locals.user = req.user;
+           user.save((err)=>{
+                if(err){
+            return res.redirect('/signup')
+                }
+                // else if(user === User.findOne({email: user.email})){
+                //     console.log('this user already exist');
+                //     return
+                // }
+            });
+            console.log(user)
+            res.redirect('/');
+        });    
+
+
+// router.post('/', 
+//  passport.authenticate('local', {failureRedirect: '/', failureMessage: true}))
+    // (req, res) => {
+    //     res.redirect('/games')
+
+        // console.log('test')
+        // User.findOne({email: req.body.email}, (err,user)=>{
+        //         if (err){
+        //             res.status(400).json(err)
+        //             return
+        //         } 
+        //         if(user === null){
+        //             console.log('there is no such user')
+        //         return res.redirect('/')
+        //     }
+        //        if(bcrypt.compare(req.body.password, user.password)){
+        //             console.log(user)
+        //          return res.redirect('/games')} 
+        //     })  
+    // })
+
+    router.post('/', passport.authenticate('local', {
+        successReturnToOrRedirect: '/games',
+        failureRedirect: '/',
+        failureMessage: true
+      }));
+
 router.get('/auth/google', passport.authenticate(
     'google',
-    { scope: ['profile', 'email']}
+    {scope: ['profile', 'email']}
 ));
 
 
@@ -22,9 +70,13 @@ router.get('/oauth2callback', passport.authenticate(
     }
 ));
 
-router.get('/logout', function(req, res){
+router.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/')
 });
+
+router.get('/signup', (req, res) =>{
+    res.render('signup')
+} )
 
 module.exports = router;

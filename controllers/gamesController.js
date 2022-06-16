@@ -1,4 +1,4 @@
-
+// const User = require('../models/users.js')
 const Game = require('../models/games')
 
 let index = (req, res) =>{
@@ -7,9 +7,11 @@ let index = (req, res) =>{
             res.status(400).json(err)
             return
         }
+        res.locals.user = req.user;
         res.render('index', {game})
     })
 };
+
 
 let show = (req, res) => {
     Game.findById(req.params.id, (err,game) =>{
