@@ -30,23 +30,6 @@ function(accessToken, refreshToken, profile, cb){
 
 
 
-//   passport.use(new LocalStrategy({ usernameField: "email", passwordField: "password" }, 
-//   function(email, password, done) {
-//     email = email.toLowerCase();
-//     User.findOne({email: email}, {}, async function(err, user) {
-//      if(err){return done(err, null);}
-    
-//     //  console.log(bcrypt.compare(password, user.password))
-//      if( await bcrypt.compare(password, user.password)){
-//         console.log(password)
-//         console.log(user.password) 
-//         console.log(bcrypt.compare(password, user.password))
-//         return done(null, user)}
-//      else{done(null, false, {message:"Password is incorrect"})}
-//         return done(null, user);
-//     });
-//    }));
-
 passport.use(new LocalStrategy({ usernameField: "email", passwordField: "password" },
      function(email, password, done) {
       User.findOne({ email: email}, function (err, user) {
@@ -54,7 +37,7 @@ passport.use(new LocalStrategy({ usernameField: "email", passwordField: "passwor
         if (!user) { return done(null, false, {message:'invalid user'}); }
         bcrypt.compare(password, user.password, (err, isMatch)=>{
             if(err || !isMatch){
-                return done(null, false, {message:"Incorrect credentials"});
+                return done(null, false, {message:"Incorrect password"});
             }
             return done(null, user);
         })

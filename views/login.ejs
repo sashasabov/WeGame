@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <title>Welcome to WeGame</title>
 </head>
-<body>
+<body> -->
     <h1>Welcome to WeGame</h1>
     <a href="/games">SEE WHAT'S IN STORE</a><br>
     
+    <% if (messages.error){ %>
+        <%= messages.error %>
+        <% } %> <br><br>
     <form action="/" method="POST">
         <input type="text" name="email" placeholder="email"><br><br>
-        <input type="text" name="password" placeholder="password"><br><br>
+        <input type="password" name="password" placeholder="password"><br><br>
         <button type="submit">Login</button>
     </form><br>
     
@@ -21,6 +24,6 @@
 
     <p>New User? <a href="/signup">Sign up</a></p>
     
-    
+<!--     
 </body>
-</html>
+</html> -->

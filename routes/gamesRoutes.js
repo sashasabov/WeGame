@@ -14,6 +14,8 @@ router.get('/:id/edit', gamesCtrl.edit)
 
 router.put('/:id', gamesCtrl.update)
 
+// router.delete('/logout', gamesCtrl.logoutGame)
+
 router.get('/:id', gamesCtrl.show)
 
 

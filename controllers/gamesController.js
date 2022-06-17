@@ -72,6 +72,11 @@ let update = (req, res) => {
         })
 }
 
+// let logoutGame = (req, res) => {
+//     req.logOut();
+//     res.redirect('/');
+// }
+
 module.exports = {
     index,
     show,
@@ -80,4 +85,5 @@ module.exports = {
     deleteGame,
     update,
     edit
+    // logoutGame
 }
