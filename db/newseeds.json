@@ -1,6 +1,6 @@
 [
     {
-        "name": "Charades",
+        "title": "Charades",
         "img": "https://i.imgur.com/cqqMb2S.jpg",
         "description": "Charades is a game of pantomimes: you have to 'act out' a phrase without speaking, while the other members of your team try to guess what the phrase is. The objective is for your team to guess the phrase as quickly as possible.",
         "age": "5-99",
@@ -9,7 +9,7 @@
     },
 
     {
-        "name": "Mafia",
+        "title": "Mafia",
         "img": "https://i.imgur.com/wPeiWKd.jpg",
         "description": "The objective of the game is for the mafia to “kill off” civilians until they are the majority, or for the civilians to kill off the entire mafia. When one of those two things happens, the game is over.",
         "age": "12-99",
@@ -18,7 +18,7 @@
     },
 
     {
-        "name": "Monopoly",
+        "title": "Monopoly",
         "img": "https://i.imgur.com/UdEkX7g.jpg",
         "description": "Monopoly is real-estate board game, in which the player's goal is to remain financially solvent while forcing opponents into bankruptcy by buying and developing pieces of property.",
         "age": "12-99",
@@ -27,7 +27,7 @@
     },
 
     {
-        "name": "Musical Chair",
+        "title": "Musical Chair",
         "img": "https://i.imgur.com/hJ1kHNl.jpg",
         "description": "Play the music and have the players walk around the perimeter of the chair circle. When the music stops, everyone must immediately sit in a chair. The one person left standing it out. Remove another chair and continue until only one person is left.",
         "age": "5-99",

@@ -6,6 +6,7 @@ const passport = require('passport')
 const bcrypt = require('bcrypt')
 const User = require('../models/users')
 
+
 router.get('/', (req, res) => {
     res.render('login')
 })
@@ -30,11 +31,11 @@ router.post('/signup', async (req, res) => {
 
 
 // router.post('/', 
-//  passport.authenticate('local', {failureRedirect: '/', failureMessage: true}))
-    // (req, res) => {
-    //     res.redirect('/games')
+//  passport.authenticate('local', {failureRedirect: '/', failureMessage: true}),
+//     (req, res) => {
+//         res.redirect('/games')
 
-        // console.log('test')
+     
         // User.findOne({email: req.body.email}, (err,user)=>{
         //         if (err){
         //             res.status(400).json(err)
@@ -55,6 +56,7 @@ router.post('/signup', async (req, res) => {
         failureRedirect: '/',
         failureMessage: true
       }));
+
 
 router.get('/auth/google', passport.authenticate(
     'google',

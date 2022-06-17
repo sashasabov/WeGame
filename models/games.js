@@ -17,7 +17,7 @@ const reviewSchema = new mongoose.Schema({
 })
 
 const gameSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String,
         // required: true
     },
