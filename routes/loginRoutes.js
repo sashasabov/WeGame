@@ -31,7 +31,10 @@ router.post('/signup', async (req, res) => {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 331b392 (logout is complete)
 // router.post('/', 
 //  passport.authenticate('local', {failureRedirect: '/', failureMessage: true}),
 //     (req, res) => {
@@ -52,7 +55,10 @@ router.post('/signup', async (req, res) => {
         //          return res.redirect('/games')} 
         //     })  
     // })
+<<<<<<< HEAD
 >>>>>>> 38f8a73 (login set up)
+=======
+>>>>>>> 331b392 (logout is complete)
 
     router.post('/', passport.authenticate('local', {
         successRedirect:'/games',
