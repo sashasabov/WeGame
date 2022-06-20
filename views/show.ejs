@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= game.title %> </title>
+    <title></title>
 </head>
 <body> -->
+  <% locals.user %> 
     <ul style="list-style-type: none;">
         <li><h2><%= game.title %> </a></h2></li>
         <li><img src="<%= game.img %>" alt="image"></li> <br>
@@ -21,28 +22,32 @@
             style="width: 20rem; height: 5rem;"></textarea><br>
         <label for="rating">Rating:</label>
         <select name="rating">
-            <option value="1" >1</option>
-            <option value="2" >2</option>
+            <option value="1" >5</option>
+            <option value="2" >4</option>
             <option value="3" >3</option>
-            <option value="4" >4</option>
-            <option value="5" >5</option>
+            <option value="4" >2</option>
+            <option value="5" >1</option>
         </select>
+      
         <button type="submit">SUBMIT</button>
         </form>
         <br>
 
         <% if (game.reviews.length) { %>
+            <input type="text" name="id">
             <table>
               <thead>
                 <tr>
                   <th>Date</th>
                   <th>Review</th>
                   <th>Rating</th>
+                  <th>Author</th>
                   <th>Delete</th>
                 </tr>
               </thead> 
               <tbody>
                 <% game.reviews.forEach((rw) => { %>
+                  
                   <tr>
                     <td style="width: 5rem;">
                       <%= rw.createdAt.toLocaleDateString() %> 
@@ -53,6 +58,9 @@
                     <td style="width: 5rem; text-align: center;">
                       <%= rw.rating %>
                     </td>
+                    <td style="width: 5rem; text-align: center;">
+                        <%= rw.author %>
+                      </td>
                     <td style="width: 5rem; text-align: center;">
                        <form action="/games/<%= game.id %>/reviews/<%= rw.id %>?_method=DELETE" method="POST">
                     <button type="submit">DELETE</button>

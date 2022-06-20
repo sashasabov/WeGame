@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const User = require('./users')
 
 const reviewSchema = new mongoose.Schema({
     content: {
@@ -10,6 +11,11 @@ const reviewSchema = new mongoose.Schema({
         min: 1,
         max: 5,
         default: 5
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        // required: true,
+        ref: "User"
     }
 },
 {
@@ -19,7 +25,7 @@ const reviewSchema = new mongoose.Schema({
 const gameSchema = new mongoose.Schema({
     title: {
         type: String,
-        // required: true
+        required: true
     },
     img: String,
     description: String,

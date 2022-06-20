@@ -1,6 +1,7 @@
 // const User = require('../models/users.js')
 const Game = require('../models/games')
 
+
 let index = (req, res) =>{
     Game.find({}, (err,game) => {
         if(err){
@@ -19,17 +20,20 @@ let show = (req, res) => {
             res.status(400).json(err)
             return
         }
+        
     res.render('show', {game})
         })
 };
+
 
 let newGame = (req, res) => {
    res.render('new')
 }
 
+
 let create = (req, res) => {
 Game.create({}, req.body,{new:true},
-(err, game) =>{
+(err, game) => {
     if(err){
         res.status(400).json(err)
     }
@@ -72,10 +76,6 @@ let update = (req, res) => {
         })
 }
 
-// let logoutGame = (req, res) => {
-//     req.logOut();
-//     res.redirect('/');
-// }
 
 module.exports = {
     index,
