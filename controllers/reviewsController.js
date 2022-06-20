@@ -8,7 +8,7 @@ let create = (req, res) => {
             res.status(400).json(err)
             return
         }
-        res.locals.user = req.user;
+        //res.locals.user = req.user;
         const author = new User(req.user)
         author.save((err)=>{if (err){ return res.status(400).json(err)}})
         game.reviews.push(req.body);
