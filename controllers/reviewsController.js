@@ -8,26 +8,14 @@ let create = (req, res) => {
             res.status(400).json(err)
             return
         }
-        //const author = new User(req.user)
         console.log(req.user)
-        //author.save((err)=>{if (err){ return res.status(400).json(err)}})
         req.body.author = req.user._id;
         game.reviews.push(req.body);
-        //game.reviews[game.reviews.length-1].author = author;
         game.save((err) => {if(err){console.log(err)}})
         console.log(game.reviews)
         res.redirect(`/games/${game._id}`)
     })
 }
-        //const body.author = author.name; 
-       //game.populate({path: 'reviews', populate:{ path: 'author', model: 'User'}}
-       //(err) => {if(err){console.log(err)}} )
-       //game.save((err) => {if(err){console.log(err)}})
-        //index = game.reviews.length-1;
-        // game.populate(`reviews.${index}.author`)
-        //console.log(game.reviews)
-        //console.log(game.populated('author'))
-       
 
 
 let deleteOne = (req, res) => {

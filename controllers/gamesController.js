@@ -32,8 +32,7 @@ let newGame = (req, res) => {
 
 
 let create = (req, res) => {
-Game.create({}, req.body,{new:true},
-(err, game) => {
+Game.create(req.body, (err, game) => {
     if(err){
         res.status(400).json(err)
     }
@@ -42,8 +41,9 @@ Game.create({}, req.body,{new:true},
 })
 }
 
+
 let deleteGame = (req, res) => {
-Game.findByIdAndDelete(req.params.id,(err, game) => {
+Game.findByIdAndDelete(req.params.id,(err) => {
     if(err){
         res.status(400).json(err)
         return
@@ -77,12 +77,13 @@ let update = (req, res) => {
 
 let sort = (req, res) => {
     console.log(req.body.category)
-    Game.find({"category": {$all: req.body.category}}, (err, game) => {
+    Game.find({category: {$all: req.body.category}}, (err, game) => {
         if(err){
             res.status(400).json(err)
             return
         }
-        console.log(game)
+        //game = req.body;
+        console.log("game: "+ game)
         res.render('sort', {game})
     })
 }
