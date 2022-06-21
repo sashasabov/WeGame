@@ -38,7 +38,7 @@ router.post('/signup', async (req, res) => {
       }));
 
 
-router.get('/auth/google', passport.authenticate(
+router.get('/auth/google',  passport.authenticate(
     'google',
     {scope: ['profile', 'email']}
 ));

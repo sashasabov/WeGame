@@ -1,0 +1,16 @@
+<h1> Sorted Games</h1>
+
+<% game.forEach((el)=>{%>
+    <ul style="list-style-type: none;">
+        <li><h2><a href="/games/<%= el.id %>"><%= el.title %> </a></h2></li>
+        <li><img src="<%= el.img %>" alt="image"></li> <br>
+        <li><b>Description: </b><%= el.description %></li><br>
+        <li><b>Age: </b> <%= el.age %> </li><br>
+        <li><b>Number of players: </b><%= el.players %> </li><br>
+
+        <form action="/games/<%= el.id %>/edit">
+            <button type="submit">EDIT</button>
+        </form> <br>
+
+    </ul><br>
+ <%}) %> 

@@ -15,7 +15,7 @@ let index = (req, res) =>{
 
 
 let show = (req, res) => {
-    Game.findById(req.params.id, (err,game) =>{
+    Game.findById(req.params.id).populate({path:"reviews", populate: {path: "author", model:'User'}}).exec((err,game) =>{
         if(err){
             res.status(400).json(err)
             return
@@ -60,7 +60,6 @@ let edit = (req, res) => {
         }
         res.render('edit', {game})
     })
-    
 }
 
 let update = (req, res) => {
@@ -71,9 +70,21 @@ let update = (req, res) => {
                 return
             }
             game = req.body;
-            // res.render('show', {game})
             res.redirect('/games')
         })
+}
+
+
+let sort = (req, res) => {
+    console.log(req.body.category)
+    Game.find({"category": {$all: req.body.category}}, (err, game) => {
+        if(err){
+            res.status(400).json(err)
+            return
+        }
+        console.log(game)
+        res.render('sort', {game})
+    })
 }
 
 
@@ -84,6 +95,6 @@ module.exports = {
     create,
     deleteGame,
     update,
-    edit
-    // logoutGame
+    edit,
+    sort
 }

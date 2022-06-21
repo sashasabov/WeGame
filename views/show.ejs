@@ -22,11 +22,11 @@
             style="width: 20rem; height: 5rem;"></textarea><br>
         <label for="rating">Rating:</label>
         <select name="rating">
-            <option value="1" >5</option>
-            <option value="2" >4</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
             <option value="3" >3</option>
-            <option value="4" >2</option>
-            <option value="5" >1</option>
+            <option value="4" >4</option>
+            <option selected value="5" >5</option>
         </select>
       
         <button type="submit">SUBMIT</button>
@@ -59,7 +59,7 @@
                       <%= rw.rating %>
                     </td>
                     <td style="width: 5rem; text-align: center;">
-                        <%= rw.author %>
+                        <%= rw.author.name %>
                       </td>
                     <td style="width: 5rem; text-align: center;">
                        <form action="/games/<%= game.id %>/reviews/<%= rw.id %>?_method=DELETE" method="POST">

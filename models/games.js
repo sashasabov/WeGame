@@ -31,7 +31,7 @@ const gameSchema = new mongoose.Schema({
     description: String,
     age: String,
     players: String,
-    category: Array,
+    category: [String],
     reviews: [reviewSchema],
     // googleId: String
 })
