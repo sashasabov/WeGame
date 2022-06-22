@@ -1,5 +1,8 @@
-<h1> Sorted Games</h1>
 
+<main class="form-signin w-100 m-auto">
+    
+    <div class="container">
+        <h1> Sorted Games</h1>
 <% game.forEach((el)=>{%>
     <ul style="list-style-type: none;">
         <li><h2><a href="/games/<%= el.id %>"><%= el.title %> </a></h2></li>
@@ -14,3 +17,7 @@
 
     </ul><br>
  <%}) %> 
+
+ <a href="/games">HOME</a>
+</div>
+ </main>

@@ -1,30 +1,30 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Welcome to WeGame</title>
-</head>
-<body> -->
-    <h1></h1>
-    <div class="container">Welcome to WeGame</div>
-    <a href="/games">SEE WHAT'S IN STORE</a><br>
+
+    <main class="form-signin w-100 m-auto">
+      
+    <!-- <a href="/games">SEE WHAT'S IN STORE</a><br> -->
     
     <% if (messages.error){ %>
         <%= messages.error %>
-        <% } %> <br><br>
-    <form action="/" method="POST">
-        <input type="text" name="email" placeholder="email"><br><br>
-        <input type="password" name="password" placeholder="password"><br><br>
-        <button type="submit">Login</button>
-    </form><br>
-    
-    <a href="/auth/google">Login with Google</a><br>
+        <% } %> 
+      
+            <form action="/" method="POST">
+                <h1 class="h3 mb-3 fw-normal">Welcome to WeGame</h1>
+                <div class="form-floating">
+                    <input type="email" name="email" placeholder="email" class="form-control">
+                </div>
+                <div class="form-floating">
+                    <input type="password" name="password" placeholder="password" class="form-control">
+                </div>
+                
+                
+                <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
 
-    <p>New User? <a href="/signup">Sign up</a></p>
+                <div class="mt-5 mb-3 text-muted">
+                    <a href="/auth/google">Login with Google</a>
+                </div>
+                <p class="mt-5 mb-3 text-muted">New User? <a href="/signup">Sign up</a></p>
+            </form>
+            
     
-<!--     
-</body>
-</html> -->
+    </main>
+ 
