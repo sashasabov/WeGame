@@ -30,26 +30,6 @@ function(accessToken, refreshToken, profile, cb){
 
 
 
-<<<<<<< HEAD
-//   passport.use(new LocalStrategy({ usernameField: "email", passwordField: "password" }, 
-//   function(email, password, done) {
-//     email = email.toLowerCase();
-//     User.findOne({email: email}, {}, async function(err, user) {
-//      if(err){return done(err, null);}
-    
-//     //  console.log(bcrypt.compare(password, user.password))
-//      if( await bcrypt.compare(password, user.password)){
-//         console.log(password)
-//         console.log(user.password) 
-//         console.log(bcrypt.compare(password, user.password))
-//         return done(ngiull, user)}
-//      else{done(null, false, {message:"Password is incorrect"})}
-//         return done(null, user);
-//     });
-//    }));
-
-=======
->>>>>>> 3db90f6 (test on deploying)
 passport.use(new LocalStrategy({ usernameField: "email", passwordField: "password" },
      function(email, password, done) {
       User.findOne({ email: email}, function (err, user) {
