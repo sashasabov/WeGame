@@ -41,7 +41,7 @@ function(accessToken, refreshToken, profile, cb){
 //         console.log(password)
 //         console.log(user.password) 
 //         console.log(bcrypt.compare(password, user.password))
-//         return done(null, user)}
+//         return done(ngiull, user)}
 //      else{done(null, false, {message:"Password is incorrect"})}
 //         return done(null, user);
 //     });
