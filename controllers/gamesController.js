@@ -76,14 +76,11 @@ let update = (req, res) => {
 
 
 let sort = (req, res) => {
-    console.log(req.body.category)
     Game.find({category: {$all: req.body.category}}, (err, game) => {
         if(err){
             res.status(400).json(err)
             return
         }
-        //game = req.body;
-        console.log("game: "+ game)
         res.render('sort', {game})
     })
 }

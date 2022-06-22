@@ -1,41 +1,93 @@
-  
-     <main class="form-signin w-100 m-auto">
+
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://i.imgur.com/IAkyflz.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            WeGame
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="/games/new">Add New Game</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Sort
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">             
+              <form action="/games/sort?_query=category" method="POST">
+                <li class="dropdown-item" ><label for="category">Kids</label>
+                    <input type="checkbox" name="category[]" value="kids"></li>
+                <li class="dropdown-item" ><label for="category">Adults</label>
+                    <input type="checkbox" name="category[]" value="adults"></li>
+                <li class="dropdown-item"><label for="category">Indoor</label>
+                    <input type="checkbox" name="category[]" value="indoor"></li>
+                <li class="dropdown-item"><label for="category">Outdoor</label>
+                    <input type="checkbox" name="category[]" value="outdoor"></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <div class="container">
+                        <button type="submit" class="btn btn-outline-success"  >Sort</button>
+                    </div>
+                 </form>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li> -->
+        </ul>
+            <a href="/games/logout"><button class="btn btn-outline-success">Logout</button></a>
+        </div>
+    </div>
+  </nav>
+     
         <h1>Welcome <%= locals.user.name %></h1>
-        <p class="mt-5 mb-3 text-muted"><a href="/games/logout"><button>Logout</button></a></p>
-        <p><a href="/games/new">Add new game</a></p>
+
+
+ <% game.forEach((el)=>{%>
+    <main>
+        <div class="album py-5 bg-light">
+            <div class="container">
         
-        <div>
-            <form action="/games/sort?_query=category" method="POST">
-                <label for="category">Kids</label>
-                <input type="checkbox" name="category[]" value="kids">
-                <label for="category">Adults</label>
-                <input type="checkbox" name="category[]" value="adults">
-                <label for="category">Indoor</label>
-                <input type="checkbox" name="category[]" value="indoor">
-                <label for="category">Outdoor</label>
-                <input type="checkbox" name="category[]" value="outdoor">
-                <button type="submit">Sort</button>
-            </form>
-          </div><br>
-
-     <% game.forEach((el)=>{%>
-    <ul style="list-style-type: none;">
-        <li><h2><a href="/games/<%= el.id %>"><%= el.title %> </a></h2></li>
-        <li><img src="<%= el.img %>" alt="image"></li> <br>
-        <li><b>Description: </b><%= el.description %></li><br>
-        <li><b>Age: </b> <%= el.age %> </li><br>
-        <li><b>Number of players: </b><%= el.players %> </li><br>
-       
-        <form action="/games/<%= el.id %>/edit">
-            <button type="submit">EDIT</button>
-        </form> <br>
-        <form action="/games/<%= el.id %>?_method=DELETE" method="POST">
-                <button type="submit">DELETE</button>
-        </form>
-    </ul><br>
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                    <img src="<%= el.img %>" alt="image" class="bd-placeholder-img card-img-top" width="100%" height="225" >
+                    <div class="container"><a href="/games/<%= el.id %>"><%= el.title %> </a></div>
+                    
+                    <div class="card-body">
+                      <p class="card-text"> <b>Description: </b><%= el.description %></p>
+                      <p class="card-text"></p><b>Age: </b> <%= el.age %> </p>
+                      <p class="card-text"><b>Number of players: </b><%= el.players %></p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <form action="/games/<%= el.id %>/edit">
+                                <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </form> 
+                            
+                          <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                        </div>
+                        <form action="/games/<%= el.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-sm btn-outline-secondary">DELETE</button>
+                        </form>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
      <%}) %> 
+  
 
 
-</div>
     
-</main>
