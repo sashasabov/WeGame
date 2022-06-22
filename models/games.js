@@ -25,7 +25,11 @@ const reviewSchema = new mongoose.Schema({
 const gameSchema = new mongoose.Schema({
     title: {
         type: String,
+<<<<<<< HEAD
         // required: true
+=======
+        required: true
+>>>>>>> 3db90f6 (test on deploying)
     },
     img: String,
     description: String,

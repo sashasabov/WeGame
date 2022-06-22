@@ -30,6 +30,7 @@ function(accessToken, refreshToken, profile, cb){
 
 
 
+<<<<<<< HEAD
 //   passport.use(new LocalStrategy({ usernameField: "email", passwordField: "password" }, 
 //   function(email, password, done) {
 //     email = email.toLowerCase();
@@ -47,6 +48,8 @@ function(accessToken, refreshToken, profile, cb){
 //     });
 //    }));
 
+=======
+>>>>>>> 3db90f6 (test on deploying)
 passport.use(new LocalStrategy({ usernameField: "email", passwordField: "password" },
      function(email, password, done) {
       User.findOne({ email: email}, function (err, user) {
@@ -61,57 +64,6 @@ passport.use(new LocalStrategy({ usernameField: "email", passwordField: "passwor
     });
     }
   ));
-
-// passport.use(new LocalStrategy({ usernameField: "email" }, function(email, password, done) {
-//     User.findOne({ email: email }, {}, function(err, user) {
-//       if (err) { return done(err); }
-//       if (!user) { return done(null, false, { message: 'Unknown user ' + e }); }
-//       user.comparePassword(password, function(err, isMatch) {
-//         if (err) return done(err);
-//         if(isMatch) {
-//           return done(null, user);
-//         } else {
-//           return done(null, false, { message: 'Invalid password' });    
-
-//         }
-//       });
-//     });
-//   }));
-
-
-
-
-
-
-// passport.use(new LocalStrategy(
-//     {
-//     usernameField: 'user[email]',
-//     passwordField: 'user[password]'
-//    }, 
-//    function(email, password, done) {
-//     User.findOne({email: email}).then(function(user){
-//      if(!user || !user.validPassword(password)){
-//       return done(null, false, {errors: {'email or password': 'is invalid'}});
-//      }
-   
-//      return done(null, user);
-//     }).catch(done);
-//    }));
-
-// passport.use(new LocalStrategy(function verify(email, password, cb) {
-//     User.findOne({ email: email}, function (err, row) {
-//       if (err) { return cb(err); }
-//       if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
-      
-//       crypto.pbkdf2(password, row.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
-//         if (err) { return cb(err); }
-//         if (!crypto.timingSafeEqual(row.hashed_password, hashedPassword)) {
-//           return cb(null, false, { message: 'Incorrect username or password.' });
-//         }
-//         return cb(null, row);
-//       });
-//     });
-//   }));
 
 
 passport.serializeUser(function(user, done){
