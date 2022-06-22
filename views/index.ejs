@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Games</title>
-</head>
-<body>
-    <a href="/games/new">Add new game</a>
-    <h1>Welcome </h1>
-     <h1>List of Games</h1>
-   
+  
+     <main class="form-signin w-100 m-auto">
+        <h1>Welcome <%= locals.user.name %></h1>
+        <p class="mt-5 mb-3 text-muted"><a href="/games/logout"><button>Logout</button></a></p>
+        <p><a href="/games/new">Add new game</a></p>
+        
+        <div>
+            <form action="/games/sort?_query=category" method="POST">
+                <label for="category">Kids</label>
+                <input type="checkbox" name="category[]" value="kids">
+                <label for="category">Adults</label>
+                <input type="checkbox" name="category[]" value="adults">
+                <label for="category">Indoor</label>
+                <input type="checkbox" name="category[]" value="indoor">
+                <label for="category">Outdoor</label>
+                <input type="checkbox" name="category[]" value="outdoor">
+                <button type="submit">Sort</button>
+            </form>
+          </div><br>
+
      <% game.forEach((el)=>{%>
     <ul style="list-style-type: none;">
         <li><h2><a href="/games/<%= el.id %>"><%= el.title %> </a></h2></li>
@@ -18,53 +25,17 @@
         <li><b>Description: </b><%= el.description %></li><br>
         <li><b>Age: </b> <%= el.age %> </li><br>
         <li><b>Number of players: </b><%= el.players %> </li><br>
-        
-    
+       
         <form action="/games/<%= el.id %>/edit">
             <button type="submit">EDIT</button>
         </form> <br>
+        <form action="/games/<%= el.id %>?_method=DELETE" method="POST">
+                <button type="submit">DELETE</button>
+        </form>
+    </ul><br>
+     <%}) %> 
 
 
-<main class="form-signin w-100 m-auto">
-<h1>Welcome <%= locals.user.name %></h1>
-   
-
-<p class="mt-5 mb-3 text-muted"><a href="/games/logout"><button>Logout</button></a></p>
-<p><a href="/games/new">Add new game</a></p>
-<div>
-  <form action="/games/sort?_query=category" method="POST">
-      <label for="category">Kids</label>
-      <input type="checkbox" name="category[]" value="kids">
-      <label for="category">Adults</label>
-      <input type="checkbox" name="category[]" value="adults">
-      <label for="category">Indoor</label>
-      <input type="checkbox" name="category[]" value="indoor">
-      <label for="category">Outdoor</label>
-      <input type="checkbox" name="category[]" value="outdoor">
-      <button type="submit">Sort</button>
-  </form>
-</div><br>
-
-<h1 >All Games</h1>
-<div class="container">
-  <% game.forEach((el)=>{%>
- <ul style="list-style-type: none;">
-     <li><h2><a href="/games/<%= el.id %>"><%= el.title %> </a></h2></li>
-     <li><img src="<%= el.img %>" alt="image"></li> <br>
-     <li><b>Description: </b><%= el.description %></li><br>
-     <li><b>Age: </b> <%= el.age %> </li><br>
-     <li><b>Number of players: </b><%= el.players %> </li><br>
-     <li><b>Category: </b><%= el.category %></li><br>
-     
- 
-     <form action="/games/<%= el.id %>/edit">
-         <button type="submit">EDIT</button>
-     </form> <br>
-     <form action="/games/<%= el.id %>?_method=DELETE" method="POST">
-             <button type="submit">DELETE</button>
-     </form>
- </ul><br>
-  <%}) %> 
 </div>
     
 </main>
