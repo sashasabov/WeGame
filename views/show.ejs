@@ -1,75 +1,153 @@
+<head>
 
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Indie+Flower&family=Philosopher&family=Space+Mono&family=Special+Elite&display=swap" rel="stylesheet">
+    
+  <style>
+  body {
+    font-family: 'Fredericka the Great', cursive;
+  }
+  </style>
+  </head>
 
-  <main class="form-signin w-100 m-auto">
-  <div class="container">
+  <body>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="/games">
+          <img src="https://i.imgur.com/IAkyflz.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          WeGame
+        </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+        <li class="nav-item">
+          <a class="nav-link" href="/games">Home</a>
+        </li>
+      </ul>
+          <a href="/games/logout"><button class="btn btn-outline-success">Logout</button></a>
+      </div>
+  </div>
+</nav>  
+
   <% locals.user %> 
 
-    <ul style="list-style-type: none;">
-        <li><h2><%= game.title %> </a></h2></li>
-        <li><img src="<%= game.img %>" alt="image"></li> <br>
-        <li><b>Description: </b><%= game.description %></li><br>
-        <li><b>Age: </b> <%= game.age %> </li><br>
-        <li><b>Number of players: </b><%= game.players %> </li><br>
-        </ul><br>
-
-        <h3>Reviews</h3>
-        <form action="/games/<%= game.id %>/reviews" method="POST">
-            <textarea name="content" placeholder="Did you like this game? Do you have any suggestions on improving it? Share your exprerience." 
-            style="width: 20rem; height: 5rem;"></textarea><br>
-        <label for="rating">Rating:</label>
-        <select name="rating">
-            <option value="1" >1</option>
-            <option value="2" >2</option>
-            <option value="3" >3</option>
-            <option value="4" >4</option>
-            <option selected value="5" >5</option>
-        </select>
-      
-        <button type="submit">SUBMIT</button>
-        </form>
-        <br>
-
-        <% if (game.reviews.length) { %>
-            <input type="text" name="id">
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Review</th>
-                  <th>Rating</th>
-                  <th>Author</th>
-                  <th>Delete</th>
-                </tr>
-              </thead> 
-              <tbody>
-                <% game.reviews.forEach((rw) => { %>
+        <div class="album py-5 bg-light">
+          
+          <div class="container">
+           
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            
+              <div class="col">
+                <div class="card shadow-sm">
+                      <img src="<%= game.img %>" alt="image" class="bd-placeholder-img card-img-top" width="100%" height="225" >
+                  <div style="text-align: center;margin: 1rem;"><h2><%= game.title %> </h2>
+                  </div>
                   
-                  <tr>
-                    <td style="width: 5rem;">
-                      <%= rw.createdAt.toLocaleDateString() %> 
-                    </td>
-                    <td style="width: 10rem; text-align: center;">
-                      <%= rw.content %> 
-                    </td>
-                    <td style="width: 5rem; text-align: center;">
-                      <%= rw.rating %>
-                    </td>
-                    <td style="width: 5rem; text-align: center;">
-                        <%= rw.author.name %>
-                      </td>
-                    <td style="width: 5rem; text-align: center;">
-                       <form action="/games/<%= game.id %>/reviews/<%= rw.id %>?_method=DELETE" method="POST">
-                    <button type="submit">DELETE</button>
-                    </form>
-                      </td>
-                  </tr>
-                  <% }); %>
-              </tbody>
-            </table> 
-            <% } else { %>
-                <h5>No Reviews Yet</h5>
-                <% } %>
-<br>
-                <a href="/games">HOME</a>
+                  <div class="card-body">
+                    <p class="card-text"> <u>Description: </u><%= game.description %></p>
+                    <p class="card-text"></p><u>Age: </u> <%= game.age %> </p>
+                    <p class="card-text"><u>Number of players: </u><%= game.players %></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                          <form action="/games/<%= game.id %>/edit">
+                              <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                          </form> 
+                      </div>
+                      <form action="/games/<%= game.id %>?_method=DELETE" method="POST">
+                          <button type="submit" class="btn btn-sm btn-outline-secondary">DELETE</button>
+                      </form>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <form action="/games/<%= game.id %>/reviews" method="POST">
+                  <div class="col" style="width: 200%;">
+                    <div class="card shadow-sm">
+                     <div style="text-align: center;margin: 1rem;"><h3>Reviews</h3></div>
+                      <div class="card-body">
+                        <textarea name="content" placeholder="Did you like this game? Do you have any suggestions on improving it? Share your exprerience." 
+                  style="width: 100%; height: 5rem;"></textarea>
+                        <p class="card-text"> <label for="rating">Rating:</label>
+                          <select name="rating" class="card-text">
+                            <option value="1" >1</option>
+                            <option value="2" >2</option>
+                            <option value="3" >3</option>
+                            <option value="4" >4</option>
+                            <option selected value="5" >5</option>
+                        </select>
+                        </p>
+      
+                        <div class="d-flex justify-content-between align-items-center">
+                          <button type="submit" class="btn btn-sm btn-outline-secondary">SUBMIT</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
-</main>
+            </div>
+       </div>  
+           
+
+<div class="container">
+    <div class="col">
+     <div class="card shadow-sm">
+      <div style="text-align: center;margin: 1rem;"></div>
+       <div class="card-body"> 
+   <div class="table-responsive">
+    <% if (game.reviews.length) { %>
+    <table class="table align-middle">
+       <thead>
+        <tr>
+          <th style="width: 10rem; text-align: center;">Date</th>
+          <th style="width: 10rem; text-align: center;">Review</th>
+          <th style="width: 10rem; text-align: center;">Rating</th>
+          <th style="width: 10rem; text-align: center;">Author</th>
+          <th style="width: 10rem; text-align: center;">Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% game.reviews.forEach((rw) => { %>
+              
+          <tr style="height: 100%">
+            <td style="width: 10rem; text-align: center;">
+              <%= rw.createdAt.toLocaleDateString() %> 
+            </td>
+            <td style="width: 10rem; text-align: center; ">
+              <div class="form-floating">
+                <p class="card-text" style="border-style:ridge"><%= rw.content%></p>
+              </div>
+            </td>
+            <td style="width: 5rem; text-align: center;">
+              <%= rw.rating %>
+            </td>
+            <td style="width: 5rem; text-align: center;">
+                <%= rw.author.name %>
+              </td>
+            <td style="width: 5rem; text-align: center;">
+               <form action="/games/<%= game.id %>/reviews/<%= rw.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-sm btn-outline-secondary">DELETE</button>
+            </form>
+              </td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+    <% } else { %>
+      <h5>No Reviews Yet</h5>
+      <% } %>
+  </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+
+</body>

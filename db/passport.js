@@ -29,7 +29,6 @@ function(accessToken, refreshToken, profile, cb){
 }));
 
 
-
 passport.use(new LocalStrategy({ usernameField: "email", passwordField: "password" },
      function(email, password, done) {
       User.findOne({ email: email}, function (err, user) {

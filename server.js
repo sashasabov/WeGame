@@ -36,7 +36,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// middleware to make your req.user available in all of your ejs files
 app.use(function (req, res, next) {
     res.locals.user = req.user;
     next();
@@ -53,7 +52,6 @@ function normalizePort(val) {
     return false;
   }
 
- 
 app.listen(PORT, () =>{
     console.log(`✅ PORT: ${PORT} 🌟`)
 })

@@ -1,30 +1,40 @@
 
-    <!-- <main class="form-signin w-100 m-auto"> -->
-      
-    <!-- <a href="/games">SEE WHAT'S IN STORE</a><br> -->
-    
+<body class="text-center">
+
     <% if (messages.error){ %>
         <%= messages.error %>
         <% } %> 
-      
-            <form action="/" method="POST">
-                <h1 class="h3 mb-3 fw-normal">Welcome to WeGame</h1>
-                <div class="form-floating">
-                    <input type="email" name="email" placeholder="email" class="form-control">
-                </div>
-                <div class="form-floating">
-                    <input type="password" name="password" placeholder="password" class="form-control">
-                </div>
-                
-                
-                <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
 
-                <div class="mt-5 mb-3 text-muted">
-                    <a href="/auth/google">Login with Google</a>
-                </div>
-                <p class="mt-5 mb-3 text-muted">New User? <a href="/signup">Sign up</a></p>
-            </form>
-            
-    
-    <!-- </main> -->
- 
+    <div class="container" style="margin-top: 10rem;">
+     <main class="form-signin w-50 m-auto">
+         <form action="/" method="POST">
+                    <img class="mb-4" src="https://i.imgur.com/IAkyflz.jpg" alt="" width="110" height="100">
+                    <h1 class="h3 mb-3 fw-normal">Welcome to WeGame</h1>
+                
+                    <div class="form-floating">
+                      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                      <label for="floatingInput">Email address</label>
+                    </div>
+
+                    <div class="form-floating">
+                      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                      <label for="floatingPassword">Password</label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                    <div class="mt-5 mb-3 text-muted">
+                        <a href="/auth/google" type="button" class="btn btn-sm btn-outline-secondary" >
+                            <img src="https://i.imgur.com/5wDrtz2.jpg" width="50" height="40" alt="google"> Sign up with Google</a>
+                    </div>
+                    <p class="mt-5 mb-3 text-muted">New User? <a href="/signup">Sign up</a></p>
+                   
+         </form>
+     </main>
+    </div>
+
+    <footer class="text-muted py-5">
+          <p class="mb-1">" WeGame - library of games. The way of connecting people. " </p>
+          <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+      </footer>
+      
+</body>
+

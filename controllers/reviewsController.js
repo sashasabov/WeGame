@@ -1,6 +1,6 @@
 const Game = require('../models/games');
 const User = require('../models/users');
-//const Review = require('../models/games')
+
 
 let create = (req, res) => {
     Game.findById(req.params.id, (err,game) => {

@@ -1,5 +1,6 @@
-// const User = require('../models/users.js')
+
 const Game = require('../models/games')
+const layout = require('express-ejs-layouts')
 
 
 let index = (req, res) =>{

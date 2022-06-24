@@ -10,25 +10,30 @@ router.get('/', (req, res) => {
 })
 
 
-router.post('/signup', async (req, res) => {       
+router.post('/signup',  async (req, res) => {       
     req.body.password = await bcrypt.hash(req.body.password,10)
            let user = new User(req.body)
+        let userCheck = await User.findOne({ email: req.body.email });
+        if (userCheck) {
+            res.render('signup', {message: "This user already exist"})
+        return
+        } else if (user.email==='' || user.password===''|| user.name===''){      
+        res.render('signup', {message: "Please complete all fields"})
+        return
+        }  
+        else {
            res.locals.user = req.user;
            user.save((err)=>{
                 if(err){
             return res.redirect('/signup')
                 }
-                // else if(user === User.findOne({email: user.email})){
-                //     console.log('this user already exist');
-                //     return
-                // }
             });
-            console.log(user)
             res.redirect('/');
+        }
         });    
 
 
-    router.post('/', passport.authenticate('local', {
+router.post('/', passport.authenticate('local', {
         successRedirect:'/games',
         failureRedirect: '/',
         failureFlash: true
@@ -49,6 +54,7 @@ router.get('/oauth2callback', passport.authenticate(
     }
 ));
 
+
 router.get('/games/logout', (req, res, next) => {
     req.logout((err)=>{
         if(err){ return next(err)}
@@ -56,10 +62,10 @@ router.get('/games/logout', (req, res, next) => {
     });
 });
 
-router.get('/signup', (req, res) =>{
-    res.render('signup')
-} )
 
+router.get('/signup', (req, res) =>{
+    res.render('signup',{message:''})
+} )
 
 
 module.exports = router;

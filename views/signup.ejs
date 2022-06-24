@@ -1,13 +1,23 @@
 
-    <main class="form-signin w-100 m-auto">
+ <% if (message){ %>
+   <%= message %>
+    <% } %> 
+
+<body class="text-center">
+    <div class="container" style="margin-top: 10rem;">
+    <main class="form-signin w-50 m-auto">
+        <img class="mb-4" src="https://i.imgur.com/IAkyflz.jpg" alt="" width="110" height="100">
         <h2 class="h3 mb-3 fw-normal">Sign up and start exploring</h2>
-    <form action="/signup" method="POST">
+        <form action="/signup" method="POST">
         <input type="text" name="name" placeholder="Username" class="form-control">
         <input type="email" name="email" placeholder="Email" class="form-control">
         <input type="text" name="password" placeholder="Password" class="form-control">
         <button type="submit" class="w-100 btn btn-lg btn-primary">SAVE</button>
-    </form><br>
-
+        <div class="mt-5 mb-3 text-muted">
+         <a href="/" type="button" class="btn btn-sm btn-outline-secondary">BACK </a>
+        </div>
+        </form>
     </main>
-    
+    <div>
+</body>
 

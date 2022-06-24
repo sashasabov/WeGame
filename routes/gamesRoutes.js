@@ -22,7 +22,6 @@ router.put('/:id', gamesCtrl.update)
 router.get('/:id', gamesCtrl.show)
 
 
-
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) return next();
     res.redirect('/');
