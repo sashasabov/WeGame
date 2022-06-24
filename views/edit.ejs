@@ -38,7 +38,6 @@
 <br><br>
 
 
-
 <div class="album py-5 bg-light" >
     <div class="container" >
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -53,6 +52,36 @@
               <textarea name="description" cols="30" rows="10"><%= game.description%></textarea> 
               <p class="card-text"></p><b>Age: </b> <input type="text" name="age" value="<%= game.age %> "></p>
               <p class="card-text"><b>Number of players: </b><input type="text" name="players" value="<%= game.players %>"></p>
+              
+            <p class="card-text"> Choose category:
+                <p>
+                <label for="category"> Kids </label>
+                <% if(game.category.includes('kids')===true){%> 
+                    <input type="checkbox" name="category[]" value="kids" checked>
+                    <%} else {%> 
+                <input type="checkbox" name="category[]" value="kids" >
+                <%}%>
+                <label for="category">Adults</label>
+                <% if(game.category.includes('adults')===true){%> 
+                <input type="checkbox" name="category[]" value="adults" checked>  
+                <%} else {%>  
+                <input type="checkbox" name="category[]" value="adults">
+                <%}%>
+                <label for="category">Indoor</label>
+                <% if(game.category.includes('indoor')===true){%> 
+                <input type="checkbox" name="category[]" value="indoor" checked>
+                <%} else {%> 
+                <input type="checkbox" name="category[]" value="indoor">
+                <%}%>
+                <label for="category">Outdoor</label>
+                <% if(game.category.includes('outdoor')===true){%> 
+                <input type="checkbox" name="category[]" value="outdoor" checked>
+                <%} else {%> 
+                <input type="checkbox" name="category[]" value="outdoor">
+                <%}%>
+                </p>
+            </p>
+
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                         <button type="submit" class="btn btn-sm btn-outline-secondary">Save</button>
@@ -61,11 +90,20 @@
               </div>
               </div>
             </div>
-          </div>
-          
+          </div>         
         </div>
     </div>
  </div>
-
-
 </body>
+
+
+<!-- <p class="mt-5 mb-3 text-muted"> Choose category:
+    <label for="category"> Kids </label>
+    <input type="checkbox" name="category[]" value="kids">
+    <label for="category">Adults</label>
+    <input type="checkbox" name="category[]" value="adults">
+    <label for="category">Indoor</label>
+    <input type="checkbox" name="category[]" value="indoor">
+    <label for="category">Outdoor</label>
+    <input type="checkbox" name="category[]" value="outdoor">
+</p> -->
