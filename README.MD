@@ -1,3 +1,5 @@
+<!-- Heroku link: https://wegame-project2.herokuapp.com/ -->
+
 <!-- ### Project idea 
 > This is a site where users will be able to find party games of different categories, so as enter (share) their own games they like. Users also will be able to rate games and leave a comment.  
 
