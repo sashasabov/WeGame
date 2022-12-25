@@ -10,7 +10,7 @@ Game.deleteMany({})
     console.log(gameseeds)
 })
 .catch((err) =>{
-    constole.log(err)
+    console.log(err)
 }).
 finally(()=>{
     process.exit()
